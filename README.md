@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+SVG to React API
+================
 
-## Getting Started
+1.  Play with [react-svgr.com/playground](https://react-svgr.com/playground)
+2.  Get config params
+3.  Call SVG to React API
+    -   -   Method: GET
+        -   Path: `/api?[YOUR-CONFIG-PARAMS-HERE]&svg=[YOUR-URI-ENCODED-SVG-CODE-HERE]`
+        -   Sample: [`GET /api?icon=true&native=true&typescript=true&svg=...`](https://svg-to-react.vercel.app/api?icon=true&native=true&typescript=true&svg=%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20height%3D%22100%22%20width%3D%22100%22%3E%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2240%22%20stroke%3D%22black%22%20stroke-width%3D%223%22%20fill%3D%22red%22%20%2F%3E%3C%2Fsvg%3E)
+    -   -   Method: POST
+        -   Path: `/path?[YOUR-CONFIG-PARAMS-HERE]`
+        -   Body: `svg=[YOUR-URI-ENCODED-SVG-CODE-HERE]`
+4.  Done:
 
-First, run the development server:
+    ```jsx
+    import * as React from 'react'
+    import Svg, { SvgProps, Circle } from 'react-native-svg'
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+    function SvgComponent(props: SvgProps) {
+      return (
+        <Svg height="1em" width="1em" {...props}>
+          <Circle cx={50} cy={50} r={40} stroke="#000" strokeWidth={3} fill="red" />
+        </Svg>
+      )
+    }
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    export default SvgComponent
+    ```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![SVG to React API](https://svg-to-react.vercel.app/_next/image?url=%2Freact-svgr.com.png&w=1920&q=75)    
