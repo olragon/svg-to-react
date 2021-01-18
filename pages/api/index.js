@@ -1,4 +1,9 @@
-import svgr from '@svgr/core'
+import svgr from "@svgr/core"
+
+// force vercel to transpile plugins code
+import "@svgr/plugin-svgo"
+import "@svgr/plugin-jsx"
+import "@svgr/plugin-prettier"
 
 export default async (req, res) => {
   const parsedQuery = parseQuery(req.query, {
