@@ -1,11 +1,11 @@
 import svgr from "@svgr/core"
 
-// force vercel to transpile plugins code
-import "@svgr/plugin-svgo"
-import "@svgr/plugin-jsx"
-import "@svgr/plugin-prettier"
-
 export default async (req, res) => {
+  // force vercel to transpile plugins code
+  require('@svgr/plugin-svgo');
+  require('@svgr/plugin-jsx');
+  require('@svgr/plugin-prettier');
+
   const parsedQuery = parseQuery(req.query, {
     name: 'SvgComponent'
   });
