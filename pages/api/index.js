@@ -1,5 +1,10 @@
 import svgr from "@svgr/core"
 
+const valMaps = {
+  'false': false,
+  'true': true
+};
+
 export default async (req, res) => {
   // force vercel to transpile plugins code
   require('@svgr/plugin-svgo');
@@ -38,11 +43,6 @@ export default async (req, res) => {
   }
 
   return res.end(jsCode);
-}
-
-const valMaps = {
-  'false': false,
-  'true': true
 }
 
 function parseQuery(query, defaultValues = {}) {
